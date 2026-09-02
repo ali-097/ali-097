@@ -60,11 +60,15 @@ JetBrains Mono is OFL-1.1; the licence ships in `assets/fonts/OFL.txt`.
 `.github/workflows/refresh.yml` runs daily and commits the SVGs only when they
 change.
 
-**Set a `PROFILE_TOKEN` secret** (classic PAT, `read:user`) for accurate
-numbers. The default `GITHUB_TOKEN` is a bot identity and cannot read
-`restrictedContributionsCount`, so commits in private repos are omitted — with
-the PAT the count went from 28 to 83. It also requires *Settings → Profile →
-Include private contributions on my profile* to be enabled.
+No secret is required. `restrictedContributionsCount` — the private-repo
+commits, which are most of them — reads correctly under the default
+`GITHUB_TOKEN`, because *Settings → Profile → Include private contributions on
+my profile* is enabled, which makes that number public. The first scheduled run
+reported 84 commits against 28 public ones, so the private work is counted.
+
+If that profile setting is ever turned off, the counter silently drops to
+public commits only. The `PROFILE_TOKEN` override in the workflow (a classic
+PAT with `read:user`) exists for that case and is otherwise unused.
 
 ## Notes for editing `README.md`
 

@@ -17,11 +17,19 @@ node scripts/render.mjs                 # fallback numbers, correct layout
 GITHUB_TOKEN=$(gh auth token) node scripts/render.mjs   # live numbers
 ```
 
-Writes `assets/{terminal,stats}-{dark,light}.svg`.
+Writes `assets/{terminal,neofetch,undostack}-{dark,light}.svg`.
 
 - `scripts/theme.mjs` — the "Midnight Ink" tokens, both themes in one place.
-- `scripts/svg.mjs` — the terminal and stats builders.
-- `scripts/render.mjs` — the GitHub GraphQL query, and the copy for the header.
+- `scripts/svg.mjs` — three builders sharing one `chrome()` window frame:
+  - `terminal()` — the animated header
+  - `neofetch()` — the key/value card, monogram and language bar
+  - `flow()` — the looping Undo-stack diagram
+- `scripts/render.mjs` — the GitHub GraphQL query, the Marketplace version
+  lookup, and the copy for the header and card rows.
+
+The card carries no commit or repository counters on purpose: GitHub renders
+the contribution graph and repo count on the profile page directly below the
+README, so those were the same information twice.
 
 ### Inspecting the animation
 

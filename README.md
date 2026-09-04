@@ -2,20 +2,24 @@
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/terminal-dark.svg">
-  <img alt="ali@islamabad:~/profile — Muhammad Ali Mehmood, Associate Software Engineer at Devsinc, Islamabad. Full-stack across TypeScript, React Native and Django." src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/terminal-light.svg" width="840">
+  <img alt="ali@islamabad:~/profile — Muhammad Ali Mehmood, Associate Software Engineer at Devsinc, Islamabad. Full-stack: frontend, backend, mobile and cloud." src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/terminal-light.svg" width="840">
 </picture>
 
+<!-- LinkedIn carries no logo on purpose: shields.io sources icons from
+     simple-icons, which removed the LinkedIn mark after a trademark request.
+     Every working alternative (xing, indeed, glassdoor) is a different
+     company's mark, so substituting one would misrepresent the link. -->
 <p>
 <a href="https://ali-097.vercel.app/"><img alt="Portfolio" src="https://img.shields.io/badge/portfolio-12131C?style=flat-square&logo=vercel&logoColor=F0A868"></a>
-<a href="https://ali-097.vercel.app/Muhammad_Ali_Mehmood_Full_Stack.pdf"><img alt="Résumé" src="https://img.shields.io/badge/r%C3%A9sum%C3%A9-12131C?style=flat-square&logo=adobeacrobatreader&logoColor=F0A868"></a>
-<a href="https://www.linkedin.com/in/ali097"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-12131C?style=flat-square&logo=linkedin&logoColor=5CC9C4"></a>
+<a href="https://ali-097.vercel.app/Muhammad_Ali_Mehmood_Full_Stack.pdf"><img alt="Résumé" src="https://img.shields.io/badge/r%C3%A9sum%C3%A9-12131C?style=flat-square&logo=readdotcv&logoColor=F0A868"></a>
+<a href="https://www.linkedin.com/in/ali097"><img alt="LinkedIn" src="https://img.shields.io/badge/linkedin-12131C?style=flat-square"></a>
 <a href="https://leetcode.com/u/ali_097/"><img alt="LeetCode" src="https://img.shields.io/badge/leetcode-12131C?style=flat-square&logo=leetcode&logoColor=5CC9C4"></a>
 <a href="mailto:aalimehmoodd@gmail.com"><img alt="Email" src="https://img.shields.io/badge/email-12131C?style=flat-square&logo=gmail&logoColor=A79CF2"></a>
 </p>
 
 </div>
 
-I own products end to end — database and API through to deployment — across web and mobile.
+I own products end to end — database and API through to deployment — across web, mobile and cloud.
 Two things I'm proud of:
 
 - **~55% cut in a client's cloud hosting spend**, from a live AWS → DigitalOcean migration.
@@ -23,19 +27,51 @@ Two things I'm proud of:
 
 ### Now
 
-- Sole engineer on client products in **agritech, e-commerce and sports technology** at Devsinc — Django and Node backends, React and React Native clients, Docker, GitHub Actions, cloud deploys.
-- Building [**Undo-stack**](https://github.com/ali-097/Undo-stack), a VS Code extension that records editing sessions so you can preview and restore workspace state.
+- Engineer on client products in **agritech, e-commerce and sports technology** at Devsinc — Django and Node backends, React and React Native clients, Docker, GitHub Actions, cloud deploys.
+- Built [**Undo-stack**](https://marketplace.visualstudio.com/items?itemName=ali-097.undostack), a VS Code extension that snapshots your workspace so you can roll it back. I also quicksave before every conversation in Fallout. These facts are related.
 - And one more thing I'm not ready to open-source yet.
 
 ### Selected work
 
 | Project | What it is | Built with | |
 | :-- | :-- | :-- | :-- |
-| **[Undo-stack](https://github.com/ali-097/Undo-stack)** | VS Code extension. Records explicit editing sessions, then previews and restores workspace state. | TypeScript · VS Code API | |
+| **[Undo-stack](https://github.com/ali-097/Undo-stack)** | VS Code extension. Records explicit editing sessions, then previews and restores workspace state. | TypeScript · VS Code API | [install](https://marketplace.visualstudio.com/items?itemName=ali-097.undostack) |
 | **[PaddleHub](https://github.com/ali-097/Padle-Hub-Frontend)** | Court booking and management for padel facilities running multiple courts — real-time availability, scheduling, instant confirmation. | MERN · Tailwind · Cloudinary | [live](https://paddlehub-fe.vercel.app/) |
 | **[Profilely](https://github.com/ali-097/Profilely)** | Generates a clean portfolio site from a developer's GitHub data, or from custom input. | React · GitHub API | |
 | **[LuxoraLimos](https://github.com/ali-097/LuxoraLimos)** | Booking site for a car-hire service, running on its own domain. | React · Tailwind | [live](https://luxoralimos.com/) |
 | **Zentro** | Expense-sharing app, split across a typed API and an Angular client. | Angular · NestJS | [fe](https://github.com/ali-097/Zentro-FE) · [be](https://github.com/ali-097/Zentro-BE) |
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/undostack-dark.svg">
+  <img alt="Undo-stack: a session records edits across files, then restores the workspace to its earlier state." src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/undostack-light.svg" width="840">
+</picture>
+
+</div>
+
+### A few screens
+
+<!-- Captions live in their own rows so they align across the pair regardless of
+     how tall each screenshot renders. -->
+<table>
+<tr valign="bottom">
+<td width="50%"><a href="https://paddlehub-fe.vercel.app/"><img src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/shots/paddlehub.webp" alt="PaddleHub — court management dashboard"></a></td>
+<td width="50%"><a href="https://luxoralimos.com/"><img src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/shots/luxoralimos.webp" alt="LuxoraLimos — car hire booking site"></a></td>
+</tr>
+<tr valign="top">
+<td><sub><b>PaddleHub</b> — booking and scheduling for multi-court padel facilities</sub></td>
+<td><sub><b>LuxoraLimos</b> — car-hire service, live on its own domain</sub></td>
+</tr>
+<tr valign="bottom">
+<td><a href="https://smartestate-fe.vercel.app/"><img src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/shots/smartestate.webp" alt="SmartEstate — real-estate platform with ML price prediction"></a></td>
+<td><a href="https://fork-flame-five.vercel.app"><img src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/shots/forkflame.webp" alt="Fork and Flame — restaurant site"></a></td>
+</tr>
+<tr valign="top">
+<td><sub><b>SmartEstate</b> — ML price prediction and sentiment-sorted reviews</sub></td>
+<td><sub><b>Fork &amp; Flame</b> — restaurant site with custom animations</sub></td>
+</tr>
+</table>
 
 <br>
 
@@ -70,7 +106,7 @@ Two things I'm proud of:
 ```gitcommit
 * Sep 2025 — present    feat(career): join Devsinc as Associate Software Engineer
 |
-|   Sole engineer on client projects in agritech, e-commerce and sports
+|   Engineer on client projects in agritech, e-commerce and sports
 |   technology — owning Django and Node.js backends, React and React Native
 |   clients, Docker environments, GitHub Actions pipelines and cloud deploys.
 |   Client-facing: requirements calls, demos and scoping with the client, PM
@@ -108,8 +144,6 @@ Two things I'm proud of:
 <details>
 <summary><b><code>$ cat contact.md</code></b></summary>
 
-<br>
-
 **Muhammad Ali Mehmood** — Associate Software Engineer, [Devsinc](https://devsinc.com) · Islamabad, Pakistan
 
 - Email — [aalimehmoodd@gmail.com](mailto:aalimehmoodd@gmail.com)
@@ -117,7 +151,48 @@ Two things I'm proud of:
 - Portfolio — [ali-097.vercel.app](https://ali-097.vercel.app/)
 - Résumé — [PDF](https://ali-097.vercel.app/Muhammad_Ali_Mehmood_Full_Stack.pdf)
 
-Open to conversations about backend architecture, React Native, and developer tooling.
+Open to conversations across the whole stack — frontend, backend, mobile, cloud and infrastructure, and developer tooling.
+
+</details>
+
+<details>
+<summary><b><code>$ ali --help</code></b></summary>
+
+```console
+USAGE
+  ali [options]
+
+OPTIONS
+  --hire                at Devsinc, but the inbox is open anyway
+  --collaborate         yes, especially anything dev-tooling
+  --review-pr           quick, unless the deploy is on a Friday
+  --explain <topic>     output may exceed one paragraph
+  --quicksave           see: Undo-stack
+
+EXIT STATUS
+  0     shipped
+  55    percent off a client's cloud bill (AWS to DigitalOcean)
+```
+
+<details>
+<summary><code>$ ali --quicksave</code></summary>
+
+`Saved to slot 47. The other 46 are also from this afternoon.`
+
+</details>
+
+</details>
+
+<details>
+<summary><b><code>$ history | awk '{print $2}' | sort | uniq -c | sort -rn | head -5</code></b></summary>
+
+```console
+    412  git status
+    288  npm run dev
+    163  docker compose up
+     97  git reset --hard
+     31  git reflog          # a direct consequence of the line above
+```
 
 </details>
 
@@ -126,10 +201,8 @@ Open to conversations about backend architecture, React Native, and developer to
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/stats-dark.svg">
-  <img alt="Contribution stats and language mix across public repositories" src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/stats-light.svg" width="840">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/neofetch-dark.svg">
+  <img alt="ali@islamabad — role, uptime, shell, editor, shipped extension, timezone, and language mix across public repositories" src="https://raw.githubusercontent.com/ali-097/ali-097/main/assets/neofetch-light.svg" width="840">
 </picture>
-
-<sub>Cards above are generated in this repo by <a href="scripts/render.mjs">a script</a> on <a href=".github/workflows/refresh.yml">a schedule</a> — no third-party services to go down.</sub>
 
 </div>

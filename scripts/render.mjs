@@ -8,7 +8,7 @@ import { writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { themes } from "./theme.mjs";
-import { terminal, stats } from "./svg.mjs";
+import { terminal, neofetch, flow } from "./svg.mjs";
 
 const USER = "ali-097";
 const out = join(dirname(fileURLToPath(import.meta.url)), "..", "assets");
@@ -21,9 +21,14 @@ const FALLBACK = {
   languages: [{ name: "TypeScript", share: 100 }],
 };
 
+// The extension whose version the card reports.
+const EXT = "ali-097.undostack";
+const EXT_FALLBACK = "0.1.1";
+
 const QUERY = `
 query($login:String!){
   user(login:$login){
+    createdAt
     contributionsCollection{
       totalCommitContributions
       totalPullRequestContributions
@@ -102,6 +107,7 @@ function shape(user) {
 
   const cc = user.contributionsCollection;
   return {
+    createdAt: user.createdAt,
     commit: newest
       ? {
           sha: newest.oid.slice(0, 7),
@@ -129,6 +135,40 @@ function shape(user) {
 // The commit line must not overrun the terminal's 87-column interior.
 const clamp = (s, n) => (s.length <= n ? s : `${s.slice(0, n - 1)}…`);
 
+/** Published version of the extension, so the card cannot go stale. */
+async function extensionVersion() {
+  try {
+    const res = await fetch(
+      "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json;api-version=7.2-preview.1",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          filters: [{ criteria: [{ filterType: 7, value: EXT }] }],
+          flags: 914,
+        }),
+      }
+    );
+    const v =
+      (await res.json())?.results?.[0]?.extensions?.[0]?.versions?.[0]?.version;
+    return v || EXT_FALLBACK;
+  } catch {
+    return EXT_FALLBACK;
+  }
+}
+
+/** Whole years since the account was created — "Uptime" on the card. */
+function uptime(createdAt) {
+  if (!createdAt) return "4 years on GitHub";
+  const years = Math.floor(
+    (Date.now() - new Date(createdAt)) / (365.25 * 24 * 3600 * 1000)
+  );
+  return `${years} years on GitHub · 3 roles`;
+}
+
 function headerLines(data) {
   const subject = clamp(data.commit.subject, 72);
   return [
@@ -144,14 +184,14 @@ function headerLines(data) {
       out: [
         ["Islamabad, PK", "dim"],
         [" · ", "dim"],
-        ["full-stack across TypeScript, React Native and Django", "dim"],
+        ["full-stack — frontend, backend, mobile and cloud", "dim"],
       ],
     },
     { gap: true },
     { cmd: "cat now.txt" },
     {
       out: [
-        ["Sole engineer on agritech, e-commerce and sports-tech products.", "text"],
+        ["Building agritech, e-commerce and sports-tech products.", "text"],
       ],
     },
     { gap: true },
@@ -186,6 +226,8 @@ async function main() {
     console.error("no GITHUB_TOKEN — rendering with fallback data");
   }
 
+  const version = await extensionVersion();
+
   mkdirSync(out, { recursive: true });
 
   for (const [name, theme] of Object.entries(themes)) {
@@ -199,23 +241,40 @@ async function main() {
     );
 
     writeFileSync(
-      join(out, `stats-${name}.svg`),
-      stats({
+      join(out, `neofetch-${name}.svg`),
+      neofetch({
         theme,
-        title: "ali@islamabad: ~/profile — gh api",
-        counters: [
-          { value: n(data.counters.commits), label: "commits, last year" },
-          { value: n(data.counters.prs), label: "pull requests" },
-          { value: n(data.counters.repos), label: "public repos" },
-          { value: n(data.counters.languages), label: "languages shipped" },
+        title: "ali@islamabad: ~/profile",
+        user: "ali@islamabad",
+        rows: [
+          ["Role", "Associate Software Engineer @ Devsinc"],
+          ["Uptime", uptime(data.createdAt)],
+          ["Shell", "zsh + oh-my-zsh"],
+          ["Editor", "VS Code — one of the extensions is mine"],
+          ["Shipped", `undostack v${version}`],
+          ["Zone", "PKT (UTC+5)"],
+          ["Offline", "football, and too many open-world RPGs"],
         ],
         languages: data.languages,
+      })
+    );
+
+    writeFileSync(
+      join(out, `undostack-${name}.svg`),
+      flow({
+        theme,
+        title: "undo-stack — how it works",
+        files: [
+          { name: "src/api.ts", fill: 0.78 },
+          { name: "src/db.ts", fill: 0.42 },
+          { name: "src/routes.ts", fill: 0.61 },
+        ],
       })
     );
   }
 
   console.log(
-    `rendered 4 svg · ${data.commit.sha} · ${data.counters.commits} commits`
+    `rendered 6 svg · ${data.commit.sha} · undostack v${version} · ${data.counters.commits} commits`
   );
 }
 
